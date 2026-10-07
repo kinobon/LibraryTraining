@@ -1,6 +1,17 @@
-@LibraryTraining.Api_HostAddress = http://localhost:5129
+@LibraryTraining.Api_HostAddress = http://localhost:5199
 
-GET {{LibraryTraining.Api_HostAddress}}/weatherforecast/
+### 蔵書一覧：200、5冊、available 3冊 / onLoan 2冊
+GET {{LibraryTraining.Api_HostAddress}}/book-copies
 Accept: application/json
 
-###
+### 未対応のクエリ：400、code=unsupported_query
+GET {{LibraryTraining.Api_HostAddress}}/book-copies?availability=available
+Accept: application/problem+json
+
+### テンプレートの天気予報：200、5件
+GET {{LibraryTraining.Api_HostAddress}}/WeatherForecast
+Accept: application/json
+
+### OpenAPI（Development環境）
+GET {{LibraryTraining.Api_HostAddress}}/openapi/v1.json
+Accept: application/json

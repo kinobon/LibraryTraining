@@ -1,4 +1,4 @@
-name: factory-training
+name: library-training
 
 services:
   oracle:
@@ -6,7 +6,8 @@ services:
     ports:
       - "127.0.0.1:1521:1521"
     environment:
-      ORACLE_PWD: "Password1"
+      # 新規ローカル環境用のサンプル値。既存DBの資格情報は転記しない。
+      ORACLE_PWD: "LocalTraining123"
     volumes:
       - oracle-data:/opt/oracle/oradata
 

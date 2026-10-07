@@ -1,1 +1,6 @@
-<Solution />
+<Solution>
+  <Project Path="LibraryTraining.Api/LibraryTraining.Api.csproj" />
+  <Project Path="LibraryTraining.Application/LibraryTraining.Application.csproj" />
+  <Project Path="LibraryTraining.Infrastructure/LibraryTraining.Infrastructure.csproj" />
+  <Project Path="LibraryTraining.Api.Tests/LibraryTraining.Api.Tests.csproj" />
+</Solution>

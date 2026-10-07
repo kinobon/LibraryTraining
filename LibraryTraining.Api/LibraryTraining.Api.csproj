@@ -1,13 +1,20 @@
 <Project Sdk="Microsoft.NET.Sdk.Web">
-
   <PropertyGroup>
     <TargetFramework>net10.0</TargetFramework>
-    <Nullable>enable</Nullable>
-    <ImplicitUsings>enable</ImplicitUsings>
+    <LangVersion>7.3</LangVersion>
+    <Nullable>disable</Nullable>
+    <ImplicitUsings>disable</ImplicitUsings>
+    <UserSecretsId>LibraryTraining.Api-local</UserSecretsId>
   </PropertyGroup>
-
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="10.0.12" />
+    <ProjectReference Include="../LibraryTraining.Application/LibraryTraining.Application.csproj" />
+    <ProjectReference Include="../LibraryTraining.Infrastructure/LibraryTraining.Infrastructure.csproj" />
   </ItemGroup>
-
+  <!-- XMLコメントの生成コードはC# 7.3非対応。実行時のOpenAPI生成は維持する。 -->
+  <Target Name="DisableOpenApiXmlGenerator" BeforeTargets="CoreCompile">
+    <ItemGroup>
+      <Analyzer Remove="@(Analyzer)" Condition="'%(Filename)' == 'Microsoft.AspNetCore.OpenApi.SourceGenerators'" />
+    </ItemGroup>
+  </Target>
 </Project>
