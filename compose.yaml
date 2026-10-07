@@ -1,0 +1,14 @@
+name: factory-training
+
+services:
+  oracle:
+    image: container-registry.oracle.com/database/free:23.26.3.0
+    ports:
+      - "127.0.0.1:1521:1521"
+    environment:
+      ORACLE_PWD: "Password1"
+    volumes:
+      - oracle-data:/opt/oracle/oradata
+
+volumes:
+  oracle-data:
